@@ -2,7 +2,7 @@
 
 ACS Reports Team test project.
 
-## Setup
+## Setup
 
 - Install required engines with `nvm install`.
 - Install dependencies with `npm install`

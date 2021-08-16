@@ -4,8 +4,8 @@ import path from 'path';
 import cookieParser from 'cookie-parser';
 
 import './config/init';
-import router from './router';
 import './db/init';
+import router from './router';
 
 const app = express();
 
