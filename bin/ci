@@ -1,0 +1,9 @@
+#!/bin/sh
+
+set -e
+
+chmod a+w /tmp
+
+npm run lint
+npm test
+npm run test:functional

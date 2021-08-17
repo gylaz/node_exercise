@@ -1,0 +1,37 @@
+version: '3.7'
+services:
+  api:
+    build:
+      context: .
+      dockerfile: docker/images/app/Dockerfile
+    ports:
+      - '3150:3150'
+    depends_on:
+      - db
+    environment:
+      - PORT=3000
+      - ENVIRONMENT=DEV
+      - NODE_ENV=production
+      - PGHOST=db
+      - PGUSER=postgres
+      - DATABASE_URL=${DATABASE_URL}
+
+  ci:
+    build:
+      context: .
+      dockerfile: docker/images/CI/Dockerfile
+    depends_on:
+      - db
+    environment:
+      - PGHOST=db
+      - PGUSER=postgres
+      - NODE_ENV=test
+    volumes:
+      - $PWD/app:/home/node/app
+      - $PWD/db:/home/node/db
+      - $PWD/config:/home/node/config
+      - $PWD/test:/home/node/test
+  db:
+    image: postgres:12.1
+    ports:
+      - '5400:5432'

@@ -1,0 +1,22 @@
+#!/bin/sh
+
+set -e
+
+if [[ -z $(psql -h localhost -p 5400 -U postgres -Atqc '\list test_project_dev' postgres) ]]; then
+  createdb test_project_dev
+fi
+if [[ -z $(psql -h localhost -p 5400 -U postgres -Atqc '\list test_project_test' postgres) ]]; then
+  createdb test_project_test
+fi
+
+if [ ! -f .env.json ]; then
+  cp .env.sample .env.json
+fi
+
+if [ ! -f .env ]; then
+  cp .env.docker .env
+fi
+
+npm run db:migrate
+npm run db:seed
+NODE_ENV=test npm run db:migrate
