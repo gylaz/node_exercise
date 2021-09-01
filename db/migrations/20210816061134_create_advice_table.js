@@ -9,5 +9,5 @@ exports.up = (knex) => {
 };
 
 exports.down = function (knex) {
-  return knex.schema.dropTable('advice');
+  return knex.schema.dropTable('advices');
 };
