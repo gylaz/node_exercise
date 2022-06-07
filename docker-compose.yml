@@ -16,21 +16,6 @@ services:
       - PGUSER=postgres
       - DATABASE_URL=${DATABASE_URL}
 
-  ci:
-    build:
-      context: .
-      dockerfile: docker/images/CI/Dockerfile
-    depends_on:
-      - db
-    environment:
-      - PGHOST=db
-      - PGUSER=postgres
-      - NODE_ENV=test
-    volumes:
-      - $PWD/app:/home/node/app
-      - $PWD/db:/home/node/db
-      - $PWD/config:/home/node/config
-      - $PWD/test:/home/node/test
   db:
     image: postgres:12.1
     ports:
