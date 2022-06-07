@@ -3,10 +3,10 @@
 set -e
 
 if [[ -z $(psql -h localhost -p 5400 -U postgres -Atqc '\list test_project_dev' postgres) ]]; then
-  createdb test_project_dev
+  createdb -h localhost -p 5400 -U postgres test_project_dev
 fi
 if [[ -z $(psql -h localhost -p 5400 -U postgres -Atqc '\list test_project_test' postgres) ]]; then
-  createdb test_project_test
+  createdb -h localhost -p 5400 -U postgres test_project_test
 fi
 
 if [ ! -f .env.json ]; then
