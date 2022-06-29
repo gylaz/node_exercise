@@ -6,10 +6,10 @@ module.exports = {
   development: {
     client: 'pg',
     connection: {
-      database: 'test_project_dev',
+      database: 'node_exercise_dev',
       user: nconf.get('DB_USER'),
       password: nconf.get('DB_PASSWORD'),
-      port: nconf.get('DB_PORT')
+      port: nconf.get('DB_PORT'),
     },
     migrations: {
       directory: 'db/migrations',
@@ -22,9 +22,10 @@ module.exports = {
   test: {
     client: 'pg',
     connection: {
-      database: 'test_project_test',
+      database: 'node_exercise_test',
       user: nconf.get('DB_USER'),
       password: nconf.get('DB_PASSWORD'),
+      port: nconf.get('DB_PORT'),
     },
     migrations: {
       directory: 'db/migrations',

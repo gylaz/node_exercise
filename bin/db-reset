@@ -11,9 +11,9 @@ until pg_isready || [ $count -gt 10 ]; do
 done
 
 if [[ "$NODE_ENV" == 'test' ]]; then
-  db_name='test_project_test'
+  db_name='node_exercise_test'
 else
-  db_name='test_project_dev'
+  db_name='node_exercise_dev'
 fi
 
 echo "*** Resetting DB: ${db_name} ***"
