@@ -9,8 +9,6 @@ services:
     depends_on:
       - db
     environment:
-      - PORT=3000
-      - ENVIRONMENT=DEV
       - NODE_ENV=production
       - PGHOST=db
       - PGUSER=postgres
