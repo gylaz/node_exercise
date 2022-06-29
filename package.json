@@ -12,8 +12,8 @@
     "test:functional": "jest --detectOpenHandles --forceExit test/functional/*"
   },
   "engines": {
-    "node": "14.17",
-    "npm": "7"
+    "node": ">=16",
+    "npm": ">=7"
   },
   "dependencies": {
     "@babel/core": "~7.14.6",
