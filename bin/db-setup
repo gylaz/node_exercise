@@ -1,0 +1,10 @@
+#!/bin/sh
+
+set -e
+
+if [ -z $(psql -U postgres -Atqc '\list node_exercise_dev' postgres) ]; then
+  createdb -U postgres node_exercise_dev
+fi
+if [ -z $(psql -U postgres -Atqc '\list node_exercise_test' postgres) ]; then
+  createdb -U postgres node_exercise_test
+fi
