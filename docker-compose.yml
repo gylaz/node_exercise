@@ -16,5 +16,7 @@ services:
 
   db:
     image: postgres:12.1
+    volumes:
+      - $PWD/bin/db-setup:/bin/db-setup
     ports:
       - '5400:5432'

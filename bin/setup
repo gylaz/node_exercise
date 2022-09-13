@@ -2,13 +2,6 @@
 
 set -e
 
-if [[ -z $(psql -h localhost -p 5400 -U postgres -Atqc '\list node_exercise_dev' postgres) ]]; then
-  createdb -h localhost -p 5400 -U postgres node_exercise_dev
-fi
-if [[ -z $(psql -h localhost -p 5400 -U postgres -Atqc '\list node_exercise_test' postgres) ]]; then
-  createdb -h localhost -p 5400 -U postgres node_exercise_test
-fi
-
 if [ ! -f .env.json ]; then
   cp .env.sample .env.json
 fi
@@ -18,5 +11,4 @@ if [ ! -f .env ]; then
 fi
 
 npm run db:migrate
-npm run db:seed
 NODE_ENV=test npm run db:migrate

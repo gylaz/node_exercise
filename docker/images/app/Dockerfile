@@ -2,7 +2,7 @@ FROM mhart/alpine-node:16
 
 WORKDIR /home/node
 
-COPY package*.json .npmrc ./
+COPY package*.json ./
 RUN npm install --production
 
 COPY . .
